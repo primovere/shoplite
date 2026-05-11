@@ -1,6 +1,6 @@
 import ProductCard from "./ProductCard.jsx";
 
-function ShopPage({ products }) {
+function ShopPage({ products, onAddToCartClick }) {
   return (
     <div className="products">
       {products.map((product) => {
@@ -10,6 +10,9 @@ function ShopPage({ products }) {
             imgURL={product.image}
             title={product.title}
             price={product.price}
+            onClick={() => {
+              onAddToCartClick(product.id);
+            }}
           />
         );
       })}

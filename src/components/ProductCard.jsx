@@ -1,10 +1,12 @@
-function ProductCard({ imgURL, title, price }) {
+function ProductCard({ imgURL, title, price, onClick }) {
   return (
-    <div class="product-card">
+    <div className="product-card">
       <img src={imgURL} alt={title} style={{ width: "25%" }} />
       <p>{title}</p>
       <p>{price}</p>
-      <button type="button">Add to Cart</button>
+      <button type="button" onClick={onClick}>
+        Add to Cart
+      </button>
     </div>
   );
 }
