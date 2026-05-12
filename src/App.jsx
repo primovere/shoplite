@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import ShopPage from "./components/ShopPage.jsx";
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
   const [products, setProducts] = useState([
@@ -15,7 +16,20 @@ function App() {
       price: 3,
     },
   ]);
-  const [cart, setCart] = useState([]);
+
+  const [cart, setCart] = useState([
+    {
+      id: 0,
+      quantity: 1,
+    },
+    {
+      id: 1,
+      quantity: 2,
+    },
+  ]);
+  const cartItemCount = cart.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
 
   // useEffect(() => {
   //   fetch("https://fakestoreapi.com/products")
@@ -51,6 +65,7 @@ function App() {
 
   return (
     <>
+      <Navbar cartItemCount={cartItemCount} />
       <ShopPage products={products} onAddToCartClick={handleAddToCartClick} />
     </>
   );
