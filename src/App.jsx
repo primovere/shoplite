@@ -2,16 +2,17 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import ShopPage from "./components/ShopPage.jsx";
 import Navbar from "./components/Navbar.jsx";
+import CartPage from "./components/CartPage.jsx";
 
 function App() {
   const [products, setProducts] = useState([
     {
-      id: 0,
+      id: 1,
       title: "bottle",
       price: 2,
     },
     {
-      id: 1,
+      id: 2,
       title: "raincoat",
       price: 3,
     },
@@ -19,11 +20,11 @@ function App() {
 
   const [cart, setCart] = useState([
     {
-      id: 0,
+      id: 1,
       quantity: 1,
     },
     {
-      id: 1,
+      id: 2,
       quantity: 2,
     },
   ]);
@@ -67,6 +68,7 @@ function App() {
     <>
       <Navbar cartItemCount={cartItemCount} />
       <ShopPage products={products} onAddToCartClick={handleAddToCartClick} />
+      <CartPage cart={cart} products={products} />
     </>
   );
 }
