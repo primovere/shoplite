@@ -1,4 +1,4 @@
-function CartPage({ cart, products, onQuantityChange }) {
+function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
   return (
     <>
       <h1>Cart</h1>
@@ -18,6 +18,9 @@ function CartPage({ cart, products, onQuantityChange }) {
               value={item.quantity}
               onChange={(e) => onQuantityChange(item.id, e.target.value)}
             />
+            <button type="button" onClick={() => onRemoveItem(item.id)}>
+              Remove
+            </button>
           </div>
         );
       })}

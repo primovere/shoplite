@@ -90,6 +90,10 @@ function App() {
     setCart(nextCart);
   }
 
+  function handleRemoveItem(id) {
+    const nextCart = cart.filter((item) => item.id !== id);
+    setCart(nextCart);
+  }
   return (
     <>
       <Navbar cartItemCount={cartItemCount} />
@@ -98,6 +102,7 @@ function App() {
         cart={cart}
         products={products}
         onQuantityChange={handleQuantityChange}
+        onRemoveItem={handleRemoveItem}
       />
     </>
   );
