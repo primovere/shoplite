@@ -68,7 +68,7 @@ function App() {
     <>
       <Navbar cartItemCount={cartItemCount} />
       <ShopPage products={products} onAddToCartClick={handleAddToCartClick} />
-      <CartPage cart={cart} products={products} />
+      <CartPage cart={cart} products={products} setCart={setCart} />
     </>
   );
 }
