@@ -64,11 +64,41 @@ function App() {
     }
   }
 
+  function handleQuantityChange(id, newQuantity) {
+    if (newQuantity === "") {
+      newQuantity = 0;
+    }
+
+    const regex = /^[0-9]*$/;
+    const isInteger = regex.test(newQuantity);
+    if (!isInteger) return;
+
+    newQuantity = parseInt(newQuantity);
+    const isInvalid = newQuantity > 999 || newQuantity < 0;
+    if (isInvalid) return;
+
+    const nextCart = cart.map((cartItem) => {
+      if (cartItem.id === id) {
+        return {
+          ...cartItem,
+          quantity: newQuantity,
+        };
+      } else {
+        return cartItem;
+      }
+    });
+    setCart(nextCart);
+  }
+
   return (
     <>
       <Navbar cartItemCount={cartItemCount} />
       <ShopPage products={products} onAddToCartClick={handleAddToCartClick} />
-      <CartPage cart={cart} products={products} setCart={setCart} />
+      <CartPage
+        cart={cart}
+        products={products}
+        onQuantityChange={handleQuantityChange}
+      />
     </>
   );
 }

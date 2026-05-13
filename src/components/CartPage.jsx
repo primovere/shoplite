@@ -1,4 +1,4 @@
-function CartPage({ cart, products, setCart }) {
+function CartPage({ cart, products, onQuantityChange }) {
   return (
     <>
       <h1>Cart</h1>
@@ -16,29 +16,7 @@ function CartPage({ cart, products, setCart }) {
             <input
               type="number"
               value={item.quantity}
-              onChange={(e) => {
-                e.target.value = e.target.value === "" ? 0 : e.target.value;
-
-                const regex = /^[0-9]*$/;
-                const isInteger = regex.test(e.target.value);
-                if (!isInteger) return;
-
-                const newQuantity = parseInt(e.target.value);
-                const isInvalid = newQuantity > 999 || newQuantity < 0;
-                if (isInvalid) return;
-
-                const nextCart = cart.map((cartItem) => {
-                  if (cartItem.id === item.id) {
-                    return {
-                      ...cartItem,
-                      quantity: newQuantity,
-                    };
-                  } else {
-                    return cartItem;
-                  }
-                });
-                setCart(nextCart);
-              }}
+              onChange={(e) => onQuantityChange(item.id, e.target.value)}
             />
           </div>
         );
