@@ -1,17 +1,31 @@
 function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
+  const cartItemsWithProductData = [];
+  let total = 0;
+
+  cart.forEach((item) => {
+    const product = products.find((product) => product.id === item.id);
+    cartItemsWithProductData.push({
+      ...item,
+      title: product.title,
+      price: product.price,
+      image: product.image,
+      subtotal: product.price * item.quantity,
+    });
+    total += product.price * item.quantity;
+  });
+
   return (
     <>
       <h1>Cart</h1>
-      {cart.map((item) => {
-        const { image, title, price } = products.find(
-          (product) => product.id === item.id
-        );
-
+      {cartItemsWithProductData.map((item) => {
         return (
           <div key={item.id}>
-            <img src={image} alt={title} style={{ width: "25%" }} />
-            <p>{title}</p>
-            <p>{price}</p>
+            <img src={item.image} alt={item.title} style={{ width: "25%" }} />
+            <p>{item.title}</p>
+            <p>
+              <b>Subtotal: {item.subtotal}</b>
+            </p>
+            <p>{item.price}/piece</p>
             <p>Quantity: {item.quantity}</p>
             <input
               type="number"
@@ -24,6 +38,7 @@ function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
           </div>
         );
       })}
+      <p>Total: {total}</p>
     </>
   );
 }

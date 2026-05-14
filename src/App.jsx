@@ -10,11 +10,13 @@ function App() {
       id: 1,
       title: "bottle",
       price: 2,
+      image: "./assets/hero.png",
     },
     {
       id: 2,
       title: "raincoat",
       price: 3,
+      image: "./assets/hero.png",
     },
   ]);
 
