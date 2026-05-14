@@ -3,6 +3,7 @@ import "./App.css";
 import ShopPage from "./components/ShopPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import CartPage from "./components/CartPage.jsx";
+import { Routes, Route } from "react-router";
 
 function App() {
   const [products, setProducts] = useState([
@@ -99,13 +100,30 @@ function App() {
   return (
     <>
       <Navbar cartItemCount={cartItemCount} />
-      <ShopPage products={products} onAddToCartClick={handleAddToCartClick} />
-      <CartPage
-        cart={cart}
-        products={products}
-        onQuantityChange={handleQuantityChange}
-        onRemoveItem={handleRemoveItem}
-      />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <ShopPage
+              products={products}
+              onAddToCartClick={handleAddToCartClick}
+            />
+          }
+        ></Route>
+
+        <Route
+          path="/cart"
+          element={
+            <CartPage
+              cart={cart}
+              products={products}
+              onQuantityChange={handleQuantityChange}
+              onRemoveItem={handleRemoveItem}
+            />
+          }
+        ></Route>
+      </Routes>
     </>
   );
 }

@@ -1,9 +1,11 @@
+import { Link } from "react-router";
+
 function Navbar({ cartItemCount }) {
   return (
     <nav className="navbar">
-      <a href="#">Shop</a>
+      <Link to="/">Shop</Link>
       <div>
-        <a href="#">Cart</a>
+        <Link to="cart">Cart</Link>
         <div>{cartItemCount}</div>
       </div>
     </nav>
