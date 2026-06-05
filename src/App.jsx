@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import ShopPage from "./components/ShopPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import CartPage from "./components/CartPage.jsx";
@@ -35,11 +34,11 @@ function App() {
     return total + item.quantity;
   }, 0);
 
-  // useEffect(() => {
-  //   fetch("https://fakestoreapi.com/products")
-  //     .then((response) => response.json())
-  //     .then((data) => setProducts(data));
-  // }, []);
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data));
+  }, []);
 
   function handleAddToCartClick(id, quantity = 1) {
     const inCart = cart.some((item) => item.id === id);
