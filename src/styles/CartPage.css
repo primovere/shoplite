@@ -1,0 +1,27 @@
+.item-img {
+  width: 153px;
+}
+.cart-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item {
+  display: flex;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+}

@@ -1,3 +1,5 @@
+import "../styles/CartPage.css";
+
 function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
   const cartItemsWithProductData = [];
   let total = 0;
@@ -17,53 +19,18 @@ function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
   return (
     <>
       <h1>Cart</h1>
-      <div
-        className="cart-items"
-        style={{ display: "flex", flexDirection: "column" }}
-      >
+      <div className="cart-items">
         {cartItemsWithProductData.map((item) => {
           return (
-            <div
-              key={item.id}
-              className="cart-item"
-              style={{
-                display: "flex",
-              }}
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                style={{ width: "153px" }}
-              />
-              <div
-                className="right-section"
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  flex: "1",
-                  justifyContent: "space-between",
-                }}
-              >
-                <div
-                  className="info"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                  }}
-                >
+            <div key={item.id} className="cart-item">
+              <img className="item-img" src={item.image} alt={item.title} />
+              <div className="right-section">
+                <div className="info">
                   <p>{item.title}</p>
                   <p>{item.price}/piece</p>
                 </div>
-                <div
-                  className="bottom-row"
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <div
-                    className="actions"
-                    style={{
-                      display: "flex",
-                    }}
-                  >
+                <div className="bottom-row">
+                  <div className="actions">
                     <input
                       type="number"
                       value={item.quantity}
