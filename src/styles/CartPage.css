@@ -1,13 +1,17 @@
 .item-img {
-  width: 153px;
+  width: 88px;
+  flex-shrink: 0;
 }
 .cart-items {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
 .cart-item {
   display: flex;
+  padding: 1rem;
+  gap: 1rem;
 }
 
 .right-section {
@@ -24,4 +28,5 @@
 
 .actions {
   display: flex;
+  gap: 1rem;
 }
