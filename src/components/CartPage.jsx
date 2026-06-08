@@ -1,5 +1,5 @@
 import "../styles/CartPage.css";
-
+import CartItem from "./CartItem.jsx";
 function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
   const cartItemsWithProductData = [];
   let total = 0;
@@ -22,37 +22,17 @@ function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
       <div className="cart-items">
         {cartItemsWithProductData.map((item) => {
           return (
-            <div key={item.id} className="cart-item">
-              <img className="item-img" src={item.image} alt={item.title} />
-              <div className="right-section">
-                <div className="info">
-                  <p>{item.title}</p>
-                  <p>{item.price}/piece</p>
-                </div>
-                <div className="bottom-row">
-                  <div className="actions">
-                    <input
-                      type="number"
-                      value={item.quantity}
-                      onChange={(e) =>
-                        onQuantityChange(item.id, e.target.value)
-                      }
-                    />
-                    <button
-                      className="remove-btn"
-                      type="button"
-                      onClick={() => onRemoveItem(item.id)}
-                    >
-                      Remove
-                    </button>
-                  </div>
-
-                  <p>
-                    <b>Subtotal: {item.subtotal}</b>
-                  </p>
-                </div>
-              </div>
-            </div>
+            <CartItem
+              key={item.id}
+              id={item.id}
+              image={item.image}
+              title={item.title}
+              price={item.price}
+              quantity={item.quantity}
+              onQuantityChange={onQuantityChange}
+              onRemoveItem={onRemoveItem}
+              subtotal={item.subtotal}
+            />
           );
         })}
       </div>
