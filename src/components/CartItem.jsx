@@ -33,7 +33,7 @@ function CartItem({
           </div>
 
           <p>
-            <b>Subtotal: {subtotal}</b>
+            <b>Subtotal: {subtotal.toFixed(2)}</b>
           </p>
         </div>
       </div>

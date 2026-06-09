@@ -37,7 +37,7 @@ function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
         })}
       </div>
       <div className="order-summary">
-        <p>Total: {total}</p>
+        <p>Total: {total.toFixed(2)}</p>
       </div>
     </>
   );
