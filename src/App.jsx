@@ -96,6 +96,20 @@ function App() {
     const nextCart = cart.filter((item) => item.id !== id);
     setCart(nextCart);
   }
+
+  function handleQuantityClick(action, id) {
+    const nextCart = cart.map((item) => {
+      if (item.id === id) {
+        return {
+          id,
+          quantity:
+            action === "increment" ? item.quantity + 1 : item.quantity - 1,
+        };
+      }
+      return item;
+    });
+    setCart(nextCart);
+  }
   return (
     <>
       <Navbar cartItemCount={cartItemCount} />
@@ -119,6 +133,7 @@ function App() {
               products={products}
               onQuantityChange={handleQuantityChange}
               onRemoveItem={handleRemoveItem}
+              onQuantityClick={handleQuantityClick}
             />
           }
         ></Route>

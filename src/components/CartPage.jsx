@@ -1,6 +1,12 @@
 import "../styles/CartPage.css";
 import CartItem from "./CartItem.jsx";
-function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
+function CartPage({
+  cart,
+  products,
+  onQuantityChange,
+  onRemoveItem,
+  onQuantityClick,
+}) {
   const cartItemsWithProductData = [];
   let total = 0;
 
@@ -31,6 +37,7 @@ function CartPage({ cart, products, onQuantityChange, onRemoveItem }) {
               quantity={item.quantity}
               onQuantityChange={onQuantityChange}
               onRemoveItem={onRemoveItem}
+              onQuantityClick={onQuantityClick}
               subtotal={item.subtotal}
             />
           );

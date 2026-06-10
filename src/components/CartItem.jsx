@@ -6,6 +6,7 @@ function CartItem({
   quantity,
   onQuantityChange,
   onRemoveItem,
+  onQuantityClick,
   subtotal,
 }) {
   return (
@@ -18,11 +19,29 @@ function CartItem({
         </div>
         <div className="bottom-row">
           <div className="actions">
+            <button
+              className="decrement-btn"
+              type="button"
+              onClick={() => {
+                onQuantityClick("decrement", id);
+              }}
+            >
+              -
+            </button>
             <input
               type="number"
               value={quantity}
               onChange={(e) => onQuantityChange(id, e.target.value)}
             />
+            <button
+              className="add-btn"
+              type="button"
+              onClick={() => {
+                onQuantityClick("increment", id);
+              }}
+            >
+              +
+            </button>
             <button
               className="remove-btn"
               type="button"
