@@ -98,16 +98,22 @@ function App() {
   }
 
   function handleQuantityClick(action, id) {
-    const nextCart = cart.map((item) => {
-      if (item.id === id) {
-        return {
-          id,
-          quantity:
-            action === "increment" ? item.quantity + 1 : item.quantity - 1,
-        };
-      }
-      return item;
-    });
+    let nextCart;
+    const targetItem = cart.find((item) => item.id === id);
+    const shouldRemove = action === "decrement" && targetItem.quantity === 1;
+    nextCart = shouldRemove
+      ? cart.filter((item) => item.id !== id)
+      : cart.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              quantity:
+                action === "increment" ? item.quantity + 1 : item.quantity - 1,
+            };
+          }
+          return item;
+        });
+
     setCart(nextCart);
   }
   return (

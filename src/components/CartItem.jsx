@@ -26,7 +26,7 @@ function CartItem({
                 onQuantityClick("decrement", id);
               }}
             >
-              -
+              {quantity > 1 ? "-" : "Remove"}
             </button>
             <input
               type="number"
