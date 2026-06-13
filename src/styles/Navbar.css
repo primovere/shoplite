@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.cart-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+}
+
+.cart-icon:hover {
+  background-color: #f5f5f5;
+}
+
+.cart-icon:active {
+  background-color: #dfdfdf;
+}
+
+.cart-icon .badge {
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  padding: 0 4px;
+  min-width: 16px;
+  border-radius: 250px;
+  background-color: red;
+  line-height: 16px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 400;
+  color: white;
+}
+
+.cart-icon img {
+  width: 24px;
+}
