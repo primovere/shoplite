@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard.jsx";
+import "../styles/ShopPage.css";
 
 function ShopPage({ products, onAddToCartClick }) {
   return (
