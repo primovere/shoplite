@@ -1,9 +1,15 @@
+import "../styles/ProductCard.css";
+
 function ProductCard({ imgURL, title, price, onClick }) {
   return (
     <div className="product-card">
-      <img src={imgURL} alt={title} style={{ width: "25%" }} />
-      <p>{title}</p>
-      <p>{price}</p>
+      <div className="img-container">
+        <img src={imgURL} alt={title} />
+      </div>
+      <div className="info">
+        <p className="title">{title}</p>
+        <p className="price">{price}</p>
+      </div>
       <button type="button" onClick={onClick}>
         Add to Cart
       </button>
