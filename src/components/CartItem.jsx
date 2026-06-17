@@ -1,3 +1,5 @@
+import "../styles/CartItem.css";
+
 function CartItem({
   id,
   image,

@@ -1,0 +1,27 @@
+.item-img {
+  width: 88px;
+  flex-shrink: 0;
+}
+
+.cart-item {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
