@@ -140,6 +140,7 @@ function App() {
               onQuantityChange={handleQuantityChange}
               onRemoveItem={handleRemoveItem}
               onQuantityClick={handleQuantityClick}
+              cartItemCount={cartItemCount}
             />
           }
         ></Route>

@@ -6,9 +6,11 @@ function CartPage({
   onQuantityChange,
   onRemoveItem,
   onQuantityClick,
+  cartItemCount,
 }) {
   const cartItemsWithProductData = [];
-  let total = 0;
+  let productTotal = 0;
+  let delivery = 5;
 
   cart.forEach((item) => {
     const product = products.find((product) => product.id === item.id);
@@ -19,7 +21,7 @@ function CartPage({
       image: product.image,
       subtotal: product.price * item.quantity,
     });
-    total += product.price * item.quantity;
+    productTotal += product.price * item.quantity;
   });
 
   return (
@@ -44,7 +46,26 @@ function CartPage({
         })}
       </div>
       <div className="order-summary">
-        <p>Total: {total.toFixed(2)}</p>
+        <h2>Order Summary</h2>
+        <div className="total-products">
+          <p>Total products</p>
+          <p>{cartItemCount}</p>
+        </div>
+        <div className="product-total">
+          <p>Products</p>
+          <p>{productTotal.toFixed(2)}</p>
+        </div>
+        <div className="delivery">
+          <p>Delivery</p>
+          <p>{delivery}</p>
+        </div>
+        <div className="total">
+          <p>Total</p>
+          <p>{(productTotal + delivery).toFixed(2)}</p>
+        </div>
+        <button className="checkout-btn" type="button">
+          Continue to checkout
+        </button>
       </div>
     </>
   );
