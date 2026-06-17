@@ -1,5 +1,38 @@
+.cart-page {
+  display: flex;
+  gap: 20px;
+}
+
 .cart-items {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.order-summary {
+  display: flex;
+  flex-direction: column;
+  min-width: min-content;
+  gap: 10px;
+}
+
+.order-summary .row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.order-summary .product-total {
+  padding-top: 20px;
+  border-top: 2px dashed grey;
+}
+
+.order-summary .total {
+  padding-top: 20px;
+  flex: 1;
+  border-top: 2px solid black;
+}
+
+.order-summary .checkout-btn {
+  padding: 20px 10px;
 }
