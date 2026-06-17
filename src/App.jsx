@@ -3,6 +3,7 @@ import ShopPage from "./components/ShopPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import CartPage from "./components/CartPage.jsx";
 import { Routes, Route } from "react-router";
+import "./styles/App.css";
 
 function App() {
   const [products, setProducts] = useState([
@@ -120,31 +121,33 @@ function App() {
     <>
       <Navbar cartItemCount={cartItemCount} />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ShopPage
-              products={products}
-              onAddToCartClick={handleAddToCartClick}
-            />
-          }
-        ></Route>
+      <div className="page-wrapper">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ShopPage
+                products={products}
+                onAddToCartClick={handleAddToCartClick}
+              />
+            }
+          ></Route>
 
-        <Route
-          path="/cart"
-          element={
-            <CartPage
-              cart={cart}
-              products={products}
-              onQuantityChange={handleQuantityChange}
-              onRemoveItem={handleRemoveItem}
-              onQuantityClick={handleQuantityClick}
-              cartItemCount={cartItemCount}
-            />
-          }
-        ></Route>
-      </Routes>
+          <Route
+            path="/cart"
+            element={
+              <CartPage
+                cart={cart}
+                products={products}
+                onQuantityChange={handleQuantityChange}
+                onRemoveItem={handleRemoveItem}
+                onQuantityClick={handleQuantityClick}
+                cartItemCount={cartItemCount}
+              />
+            }
+          ></Route>
+        </Routes>
+      </div>
     </>
   );
 }
