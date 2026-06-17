@@ -25,3 +25,23 @@
   display: flex;
   gap: 1rem;
 }
+
+.remove-btn {
+  width: 35px;
+  height: 35px;
+  background: transparent;
+  border: transparent;
+  border-radius: 50%;
+}
+
+.remove-btn:hover {
+  background-color: rgb(223, 223, 223);
+}
+
+.remove-btn:active {
+  transform: scale(0.97);
+  background-color: rgb(204, 204, 204);
+}
+.remove-btn svg {
+  fill: #3a3737;
+}
