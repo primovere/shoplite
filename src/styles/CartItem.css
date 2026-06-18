@@ -5,8 +5,12 @@
 
 .cart-item {
   display: flex;
-  padding: 1rem;
-  gap: 1rem;
+  padding: 50px 50px 50px 0;
+  gap: 35px;
+}
+
+.cart-item:not(:first-child) {
+  border-top: 1px solid #dfdfdf;
 }
 
 .right-section {
@@ -19,14 +23,16 @@
 .bottom-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
+  gap: 30px;
+  align-items: center;
 }
 
-.remove-btn {
+.cart-item button {
   width: 35px;
   height: 35px;
   background: transparent;
@@ -34,14 +40,56 @@
   border-radius: 50%;
 }
 
-.remove-btn:hover {
+.cart-item button:hover {
   background-color: rgb(223, 223, 223);
 }
 
-.remove-btn:active {
+.cart-item button:active {
   transform: scale(0.97);
   background-color: rgb(204, 204, 204);
 }
 .remove-btn svg {
   fill: #3a3737;
+}
+
+.quantity-control {
+  display: flex;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 9999px;
+}
+
+.quantity-control:focus-within {
+  border: 1px solid rgb(1 88 163);
+  outline: 2px solid rgb(1 88 163);
+}
+
+.quantity-control svg {
+  width: 18px;
+}
+
+.quantity-control button:disabled {
+  background-color: transparent;
+  fill: #cccccc;
+}
+
+input[type="number"] {
+  width: 50px;
+  border: transparent;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.bottom-row p {
+  font-size: 20px;
 }
