@@ -28,3 +28,7 @@ button {
 button:disabled {
   cursor: default;
 }
+
+:root {
+  --page-wrapper-padding: 48px;
+}

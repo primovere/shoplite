@@ -7,3 +7,13 @@
   row-gap: 30px;
   overflow: auto;
 }
+
+.page-wrapper .full-bleed {
+  margin: 0 calc(-1 * var(--page-wrapper-padding));
+}
+
+.hero-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
