@@ -1,13 +1,18 @@
 import "../styles/ProductCard.css";
+import { Link } from "react-router";
 
-function ProductCard({ imgURL, title, price, onClick }) {
+function ProductCard({ imgURL, title, price, onClick, id }) {
   return (
     <div className="product-card">
       <div className="img-container">
-        <img src={imgURL} alt={title} />
+        <Link to={`/product/${id}`}>
+          <img src={imgURL} alt={title} />
+        </Link>
       </div>
       <div className="info">
-        <p className="title">{title}</p>
+        <Link to={`/product/${id}`}>
+          <p className="title">{title}</p>
+        </Link>
         <p className="price">{price}</p>
       </div>
       <button type="button" onClick={onClick}>

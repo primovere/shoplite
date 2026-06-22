@@ -16,6 +16,7 @@ function ShopPage({ products, onAddToCartClick }) {
               imgURL={product.image}
               title={product.title}
               price={product.price}
+              id={product.id}
               onClick={() => {
                 onAddToCartClick(product.id);
               }}
