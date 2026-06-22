@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import ShopPage from "./components/ShopPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import CartPage from "./components/CartPage.jsx";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useParams } from "react-router";
 import "./styles/App.css";
+import ProductDetail from "./components/ProductDetail.jsx";
 
 function App() {
   const [products, setProducts] = useState([
@@ -141,6 +142,11 @@ function App() {
                 cartItemCount={cartItemCount}
               />
             }
+          ></Route>
+
+          <Route
+            path="/product/:id"
+            element={<ProductDetail products={products} />}
           ></Route>
         </Routes>
       </div>
