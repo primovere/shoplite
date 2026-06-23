@@ -1,0 +1,97 @@
+.product-detail {
+  display: flex;
+  gap: 30px;
+}
+
+.product-detail .left-section {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+}
+.product-detail .img-container {
+  height: 300px;
+}
+
+.product-detail .right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-self: flex-start;
+  flex: 1;
+}
+
+.product-detail .info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-detail .title {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.product-detail .price {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.product-detail .description {
+  color: rgb(72, 72, 72);
+}
+
+.product-detail .bottom-row {
+  display: flex;
+  height: 60px;
+}
+
+.product-detail .quantity-control button {
+  width: 55px;
+  height: 55px;
+  background: transparent;
+  border: transparent;
+  border-radius: 50%;
+}
+
+.quantity-control button:hover {
+  background-color: rgb(223, 223, 223);
+}
+
+.quantity-control button:active {
+  transform: scale(0.97);
+  background-color: rgb(204, 204, 204);
+}
+
+.product-detail .quantity-control {
+  display: flex;
+  padding: 2px;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 9999px;
+}
+
+.quantity-control:focus-within {
+  border: 1px solid rgb(1 88 163);
+  outline: 2px solid rgb(1 88 163);
+}
+
+.quantity-control svg {
+  width: 18px;
+}
+
+.quantity-control button:disabled {
+  background-color: transparent;
+  fill: #cccccc;
+}
+
+.add-to-cart-btn {
+  width: 200px;
+  height: 100%;
+
+  border: transparent;
+  border-radius: 9999px;
+  background-color: rgb(0, 88, 163);
+  cursor: pointer;
+  color: white;
+}
