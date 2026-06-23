@@ -1,7 +1,7 @@
 import { useParams } from "react-router";
 import { useState } from "react";
 
-function ProductDetail({ products }) {
+function ProductDetail({ products, cart, setCart }) {
   const { id } = useParams();
   const product = products.find((p) => p.id === Number(id));
   const [quantity, setQuantity] = useState(1);
@@ -23,6 +23,33 @@ function ProductDetail({ products }) {
     const isInvalid = newQuantity > 999 || newQuantity < 0;
     if (isInvalid) return;
     setQuantity(newQuantity);
+  }
+
+  function onAddToCartClick(id, quantity) {
+    const inCart = cart.some((item) => item.id === id);
+    if (inCart) {
+      const nextCart = cart.map((item) => {
+        if (item.id === id) {
+          return {
+            id,
+            quantity: item.quantity + quantity,
+          };
+        } else {
+          return item;
+        }
+      });
+      setCart(nextCart);
+    } else {
+      const nextCart = [
+        ...cart,
+        {
+          id,
+          quantity,
+        },
+      ];
+      setCart(nextCart);
+    }
+    setQuantity(1);
   }
 
   return (
@@ -62,7 +89,9 @@ function ProductDetail({ products }) {
             </svg>
           </button>
         </div>
-        <button type="button">Add to Cart</button>
+        <button type="button" onClick={() => onAddToCartClick(id, quantity)}>
+          {quantity === 1 ? "Add to Cart" : `Add ${quantity} items to cart`}
+        </button>
       </div>
     </>
   );
