@@ -43,29 +43,29 @@ function App() {
   }, []);
 
   function handleAddToCartClick(id, quantity = 1) {
-    const inCart = cart.some((item) => item.id === id);
-    if (inCart) {
-      const nextCart = cart.map((item) => {
-        if (item.id === id) {
-          return {
+    setCart((prevCart) => {
+      const inCart = cart.some((item) => item.id === id);
+      if (inCart) {
+        return prevCart.map((item) => {
+          if (item.id === id) {
+            return {
+              id,
+              quantity: item.quantity + quantity,
+            };
+          } else {
+            return item;
+          }
+        });
+      } else {
+        return [
+          ...prevCart,
+          {
             id,
-            quantity: item.quantity + quantity,
-          };
-        } else {
-          return item;
-        }
-      });
-      setCart(nextCart);
-    } else {
-      const nextCart = [
-        ...cart,
-        {
-          id,
-          quantity,
-        },
-      ];
-      setCart(nextCart);
-    }
+            quantity,
+          },
+        ];
+      }
+    });
   }
 
   function handleQuantityChange(id, newQuantity) {
@@ -150,6 +150,7 @@ function App() {
               <ProductDetail
                 products={products}
                 cart={cart}
+                onAddToCartClick={handleAddToCartClick}
                 setCart={setCart}
               />
             }

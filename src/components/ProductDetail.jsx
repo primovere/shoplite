@@ -1,9 +1,10 @@
 import { useParams } from "react-router";
 import { useState } from "react";
 
-function ProductDetail({ products, cart, setCart }) {
+function ProductDetail({ products, onAddToCartClick }) {
   const { id } = useParams();
-  const product = products.find((p) => p.id === Number(id));
+  const numericId = Number(id);
+  const product = products.find((p) => p.id === numericId);
   const [quantity, setQuantity] = useState(1);
 
   function onQuantityClick(action) {
@@ -23,33 +24,6 @@ function ProductDetail({ products, cart, setCart }) {
     const isInvalid = newQuantity > 999 || newQuantity < 0;
     if (isInvalid) return;
     setQuantity(newQuantity);
-  }
-
-  function onAddToCartClick(id, quantity) {
-    const inCart = cart.some((item) => item.id === id);
-    if (inCart) {
-      const nextCart = cart.map((item) => {
-        if (item.id === id) {
-          return {
-            id,
-            quantity: item.quantity + quantity,
-          };
-        } else {
-          return item;
-        }
-      });
-      setCart(nextCart);
-    } else {
-      const nextCart = [
-        ...cart,
-        {
-          id,
-          quantity,
-        },
-      ];
-      setCart(nextCart);
-    }
-    setQuantity(1);
   }
 
   return (
@@ -89,7 +63,13 @@ function ProductDetail({ products, cart, setCart }) {
             </svg>
           </button>
         </div>
-        <button type="button" onClick={() => onAddToCartClick(id, quantity)}>
+        <button
+          type="button"
+          onClick={() => {
+            onAddToCartClick(numericId, quantity);
+            setQuantity(1);
+          }}
+        >
           {quantity === 1 ? "Add to Cart" : `Add ${quantity} items to cart`}
         </button>
       </div>
