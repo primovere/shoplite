@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ShopPage from "./components/ShopPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import CartPage from "./components/CartPage.jsx";
-import { Routes, Route, useParams } from "react-router";
+import { Routes, Route } from "react-router";
 import "./styles/App.css";
 import ProductDetail from "./components/ProductDetail.jsx";
 
@@ -35,16 +35,21 @@ function App() {
   const cartItemCount = cart.reduce((total, item) => {
     return total + item.quantity;
   }, 0);
+  const [query, setQuery] = useState("");
+  const [displayedProducts, setDisplayedProducts] = useState(products);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        setDisplayedProducts(data);
+      });
   }, []);
 
   function handleAddToCartClick(id, quantity = 1) {
     setCart((prevCart) => {
-      const inCart = cart.some((item) => item.id === id);
+      const inCart = prevCart.some((item) => item.id === id);
       if (inCart) {
         return prevCart.map((item) => {
           if (item.id === id) {
@@ -114,9 +119,28 @@ function App() {
 
     setCart(nextCart);
   }
+
+  function handleQueryChange(e) {
+    setQuery(e.target.value);
+  }
+
+  function handleQuerySubmit(e) {
+    e.preventDefault();
+    const trimmed = query.trim();
+    const filtered = products?.filter((product) =>
+      product.title.toLowerCase().includes(trimmed.toLowerCase())
+    );
+    setDisplayedProducts(filtered);
+  }
+
   return (
     <>
-      <Navbar cartItemCount={cartItemCount} />
+      <Navbar
+        cartItemCount={cartItemCount}
+        query={query}
+        onQueryChange={handleQueryChange}
+        onQuerySubmit={handleQuerySubmit}
+      />
 
       <div className="page-wrapper">
         <Routes>
@@ -124,7 +148,7 @@ function App() {
             path="/"
             element={
               <ShopPage
-                products={products}
+                products={displayedProducts}
                 onAddToCartClick={handleAddToCartClick}
               />
             }
