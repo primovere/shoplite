@@ -8,12 +8,14 @@ function CartPage({
   onQuantityClick,
   cartItemCount,
 }) {
+  if (!products.length) return <p>Loading cart...</p>;
   const cartItemsWithProductData = [];
   let productTotal = 0;
   let delivery = 5;
 
   cart.forEach((item) => {
     const product = products.find((product) => product.id === item.id);
+    if (!product) return;
     cartItemsWithProductData.push({
       ...item,
       title: product.title,
