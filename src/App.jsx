@@ -22,16 +22,13 @@ function App() {
     },
   ]);
 
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      quantity: 2,
-    },
-  ]);
+  const [cart, setCart] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    } catch {
+      return [];
+    }
+  });
   const cartItemCount = cart.reduce((total, item) => {
     return total + item.quantity;
   }, 0);
@@ -46,6 +43,10 @@ function App() {
         setDisplayedProducts(data);
       });
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function handleAddToCartClick(id, quantity = 1) {
     setCart((prevCart) => {
@@ -173,9 +174,7 @@ function App() {
             element={
               <ProductDetail
                 products={products}
-                cart={cart}
                 onAddToCartClick={handleAddToCartClick}
-                setCart={setCart}
               />
             }
           ></Route>
