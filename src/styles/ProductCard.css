@@ -18,6 +18,18 @@
   object-fit: contain;
 }
 
+.product-card .img-container:hover {
+  transform: scale(1.05);
+}
+
+.product-card a {
+  color: black;
+}
+
+.product-card a:hover {
+  text-decoration: underline;
+}
+
 .product-card .title {
   display: -webkit-box;
   line-clamp: 2;

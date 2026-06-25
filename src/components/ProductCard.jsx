@@ -13,7 +13,7 @@ function ProductCard({ imgURL, title, price, onClick, id }) {
         <Link to={`/product/${id}`}>
           <p className="title">{title}</p>
         </Link>
-        <p className="price">{price}</p>
+        <p className="price">${price}</p>
       </div>
       <button type="button" onClick={onClick}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
