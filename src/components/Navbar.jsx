@@ -5,7 +5,9 @@ import "../styles/Navbar.css";
 function Navbar({ cartItemCount, query, onQueryChange, onQuerySubmit }) {
   return (
     <nav className="navbar">
-      <Link to="/">Shop</Link>
+      <Link className="brand-link" to="/">
+        Shop
+      </Link>
       <form id="search-form" onSubmit={onQuerySubmit}>
         <input
           type="text"
@@ -21,7 +23,7 @@ function Navbar({ cartItemCount, query, onQueryChange, onQuerySubmit }) {
         </button>
       </form>
 
-      <Link to="cart">
+      <Link className="cart-link" to="cart">
         <div className="cart-icon">
           <img src={cartIcon} alt="cart icon" />
           <div className="badge">{cartItemCount}</div>
