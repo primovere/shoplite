@@ -1,11 +1,12 @@
 .item-img {
-  width: 88px;
+  width: 60px;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .cart-item {
   display: flex;
-  padding: 50px 50px 50px 0;
+  padding: 20px 0;
   gap: 35px;
 }
 
@@ -18,11 +19,16 @@
   flex-direction: column;
   flex: 1;
   justify-content: space-between;
+  gap: 30px;
+}
+
+.cart-item .info .subtotal {
+  font-size: 1.2rem;
 }
 
 .bottom-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -74,10 +80,10 @@
 }
 
 input[type="number"] {
-  width: 50px;
+  width: 40px;
   border: transparent;
   text-align: center;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 700;
 }
 
