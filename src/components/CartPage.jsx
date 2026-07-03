@@ -28,26 +28,29 @@ function CartPage({
 
   return (
     <>
-      <h1>Cart</h1>
       <div className="cart-page">
-        <div className="cart-items">
-          {cartItemsWithProductData.map((item) => {
-            return (
-              <CartItem
-                key={item.id}
-                id={item.id}
-                image={item.image}
-                title={item.title}
-                price={item.price}
-                quantity={item.quantity}
-                onQuantityChange={onQuantityChange}
-                onRemoveItem={onRemoveItem}
-                onQuantityClick={onQuantityClick}
-                subtotal={item.subtotal}
-              />
-            );
-          })}
+        <div className="left-section">
+          <h1>Cart</h1>
+          <div className="cart-items">
+            {cartItemsWithProductData.map((item) => {
+              return (
+                <CartItem
+                  key={item.id}
+                  id={item.id}
+                  image={item.image}
+                  title={item.title}
+                  price={item.price}
+                  quantity={item.quantity}
+                  onQuantityChange={onQuantityChange}
+                  onRemoveItem={onRemoveItem}
+                  onQuantityClick={onQuantityClick}
+                  subtotal={item.subtotal}
+                />
+              );
+            })}
+          </div>
         </div>
+
         <div className="order-summary">
           <h2>Order Summary</h2>
           <div className="total-products row">
