@@ -1,11 +1,13 @@
 .products {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  grid-template-rows: repeat(5, 350px);
-  grid-auto-rows: 300px;
+  justify-content: center;
+  grid-template-columns: repeat(
+    var(--product-columns),
+    calc((100vw - var(--product-grid-gaps)) / var(--product-columns))
+  );
   column-gap: 10px;
   row-gap: 30px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .page-wrapper .full-bleed {

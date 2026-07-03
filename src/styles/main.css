@@ -30,5 +30,19 @@ button:disabled {
 }
 
 :root {
-  --page-wrapper-padding: 48px;
+  --page-wrapper-padding: 0px;
+  --product-columns: 2;
+  --product-grid-gaps: 10px * (var(--product-columns) - 1);
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --product-columns: 3;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --product-columns: 5;
+  }
 }
