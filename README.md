@@ -6,8 +6,9 @@ A responsive e-commerce frontend built with React.
 
 ## Demo
 
-![Shop page](src/assets/shop.png)
-![Cart page](src/assets/cart.png)
+<p align="center">
+<img src="src/assets/shop.png" alt="Shop page screenshot" width="250px" /> &nbsp;&nbsp; <img src="src/assets/cart.png" alt="Cart page screenshot" width="250px" />
+</p>
 
 ## Overview
 
