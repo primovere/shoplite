@@ -30,7 +30,7 @@ button:disabled {
 }
 
 :root {
-  --page-wrapper-padding: 0px;
+  --page-wrapper-padding: 10px;
   --product-columns: 2;
   --product-grid-gaps: 10px * (var(--product-columns) - 1);
 }
