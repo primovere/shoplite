@@ -43,3 +43,21 @@
 .order-summary .checkout-btn {
   padding: 20px 10px;
 }
+
+.empty-cart {
+  display: flex;
+
+  /* for desktop */
+  flex: 1;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.empty-cart p {
+  color: rgb(72, 72, 72);
+}
