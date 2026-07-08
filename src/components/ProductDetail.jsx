@@ -41,7 +41,6 @@ function ProductDetail({ products, onAddToCartClick }) {
               alt={product.title}
             />
           </div>
-          <p className="description">{product.description}</p>
         </div>
         <div className="right-section">
           <div className="info">
@@ -90,6 +89,7 @@ function ProductDetail({ products, onAddToCartClick }) {
               {quantity === 1 ? "Add to Cart" : `Add ${quantity} items to cart`}
             </button>
           </div>
+          <p className="description">{product.description}</p>
         </div>
       </div>
     </>
